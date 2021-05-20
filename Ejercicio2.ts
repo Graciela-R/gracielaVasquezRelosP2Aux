@@ -1,32 +1,34 @@
 //CLASES Y INTERFACES
 class Departament{
-    owner:string;
-    id:number;
-    vectorNombres=new Array();
-    constructor(owner:string,id:number){
-        this.owner=owner;
-        this.id=id;
+    owner:Array<string>;
+    id:Array<number>;
+    constructor(){
+        this.owner=new Array();
+        this.id=new Array();
     }
     workers():void{
-        for(let i=0;i<this.vectorNombres.length;i++){
-            console.log(this.vectorNombres[i]);
+        for(let i=0;i<this.owner.length;i++){
+            console.log(this.owner[i]);
         }
-   }  
-   createWorker(add:string):void{
-    this.vectorNombres[this.vectorNombres.length-1]=add;
+   }
+   createWorker(Nombre:string,id:number):void{
+    this.owner.push(Nombre);
+    this.id.push(id);
    }
    showemployesInfo(){
-      return this.owner;
-       
+    console.log("La cantidad de Empleados son: "+this.owner.length);
+    console.log("La lista de los Empleados:");
+    this.workers();
    }
- 
-}
- let Departamento1=new Departament("Luna",1); 
- let Departamento2=new Departament("Luna2",2); 
- let Departamento3=new Departament("Luna3",3); 
+};
+export default Departament;
+ let Departamento1=new Departament(); 
  //Muestre la informacion de los trabajadores
- Departamento1.createWorker('Graciela');
- console.log(Departamento1.workers());
+ Departamento1.createWorker('graciela',1);
+ Departamento1.createWorker('Mabel',2);
+ Departamento1.createWorker('Severina',3);
+ //console.log(Departamento1.workers());
+ Departamento1.showemployesInfo();
 
 
 

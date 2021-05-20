@@ -1,26 +1,33 @@
+"use strict";
+exports.__esModule = true;
 //CLASES Y INTERFACES
 var Departament = /** @class */ (function () {
-    function Departament(owner, id) {
-        this.vectorNombres = new Array();
-        this.owner = owner;
-        this.id = id;
+    function Departament() {
+        this.owner = new Array();
+        this.id = new Array();
     }
     Departament.prototype.workers = function () {
-        for (var i = 0; i < this.vectorNombres.length; i++) {
-            console.log(this.vectorNombres[i]);
+        for (var i = 0; i < this.owner.length; i++) {
+            console.log(this.owner[i]);
         }
     };
-    Departament.prototype.createWorker = function (add) {
-        this.vectorNombres[this.vectorNombres.length - 1] = add;
+    Departament.prototype.createWorker = function (Nombre, id) {
+        this.owner.push(Nombre);
+        this.id.push(id);
     };
     Departament.prototype.showemployesInfo = function () {
-        return this.owner;
+        console.log("La cantidad de Empleados son: " + this.owner.length);
+        console.log("La lista de los Empleados:");
+        this.workers();
     };
     return Departament;
 }());
-var Departamento1 = new Departament("Luna", 1);
-var Departamento2 = new Departament("Luna2", 2);
-var Departamento3 = new Departament("Luna3", 3);
+;
+exports["default"] = Departament;
+var Departamento1 = new Departament();
 //Muestre la informacion de los trabajadores
-Departamento1.createWorker('Graciela');
-console.log(Departamento1.workers());
+Departamento1.createWorker('graciela', 1);
+Departamento1.createWorker('Mabel', 2);
+Departamento1.createWorker('Severina', 3);
+//console.log(Departamento1.workers());
+Departamento1.showemployesInfo();
